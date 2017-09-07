@@ -1,0 +1,24 @@
+apiVersion: v1
+kind: Route
+metadata:
+  annotations:
+    openshift.io/host.generated: "true"
+  labels:
+    app: eureka-2
+  name: eureka
+spec:
+  alternateBackends:
+  - kind: Service
+    name: peer3
+    weight: 100
+  - kind: Service
+    name: peer4
+    weight: 100
+  host: eureka-PROJECT.picc.yun
+  port:
+    targetPort: eureka
+  to:
+    kind: Service
+    name: peer2
+    weight: 100
+  wildcardPolicy: None

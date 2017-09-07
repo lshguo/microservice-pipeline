@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  labels:
+    app: eureka-2
+  name: peer2
+spec:
+  ports:
+  - name: eureka
+    port: 80
+    protocol: TCP
+    targetPort: 80
+  selector:
+    name: eureka-2
+  sessionAffinity: None
+  type: ClusterIP
