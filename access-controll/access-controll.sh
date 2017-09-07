@@ -17,7 +17,7 @@ if [ "$user" != "admin" ];then
 	exit 1
 fi
 
-# oc adm policy add-scc-to-group hostmount-anyuid system:authenticated
-oc adm policy add-scc-to-user  privileged  system:serviceaccount:"$NAMESPACE":default
-#oc adm policy add-scc-to-user  hostmount-anyuid -z "$NAMESPACE" 
+oc adm policy add-scc-to-group privileged system:authenticated
+#oc adm policy add-scc-to-user  privileged  system:serviceaccount:"$NAMESPACE":default
+oc adm policy add-scc-to-user  privileged -z "$NAMESPACE" 
  
